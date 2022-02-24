@@ -2,7 +2,7 @@
   <section class="el-container" :class="{ 'is-vertical': isVertical }">
     <slot />
   </section>
-  <p>meiyou</p>
+  <p>Container</p>
 </template>
 
 <script lang="ts">
@@ -19,9 +19,11 @@ interface Props {
 
 const props = defineProps<Props>();
 const slots = useSlots();
+// 存在Header或Footer组件显示垂直居中，否则水平居中
 const isVertical = computed(() => {
   if (slots && slots.default) {
     return slots.default().some((vn: VNode) => {
+      // as 类型断言
       const tag = (vn.type as Component).name;
       return tag === "ElHeader" || tag === "ElFooter";
     });

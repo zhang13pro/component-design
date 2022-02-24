@@ -1,5 +1,5 @@
 <template>
-  <header class="el-header" :style="{ height }">
+  <header class="el-header" :style="{ height, width }">
     <slot />
   </header>
 </template>
@@ -10,11 +10,11 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import { withDefaults } from "vue";
-
 interface Props {
   height?: string;
+  width?: string;
 }
+
 withDefaults(defineProps<Props>(), {
   height: "60px",
 });
