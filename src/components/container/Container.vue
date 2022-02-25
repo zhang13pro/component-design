@@ -34,7 +34,7 @@ const isVertical = computed(() => {
 </script>
 
 <style lang="scss">
-@import "@/styles/mixin";
+@import "../styles/mixin";
 
 @include b(container) {
   display: flex;

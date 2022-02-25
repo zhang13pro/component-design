@@ -21,11 +21,11 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <style lang="scss">
-@import "@/styles/mixin";
+@import "../styles/mixin";
 
 @include b(header) {
   box-sizing: border-box;
-  /* padding: $--header-padding; */
+  padding: $--header-padding;
   flex-shrink: 0;
 }
 </style>
