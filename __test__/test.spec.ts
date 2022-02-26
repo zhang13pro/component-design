@@ -1,4 +1,4 @@
-function sayHello(name, fn) {
+function sayHello(name: string, fn: Function): void {
   if (name == "13pro") {
     fn();
   }

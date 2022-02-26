@@ -16,7 +16,7 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/components/button/Button.spec.js",
+    "src/components/button/Button.spec.ts",
     "src/util.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
