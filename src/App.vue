@@ -25,6 +25,13 @@
       <el-footer>Footer</el-footer>
     </el-container>
   </el-container>
+
+  <el-form>
+    <el-form-item>
+      <el-input></el-input>
+      <el-input></el-input>
+    </el-form-item>
+  </el-form>
 </template>
 
 <script setup lang="ts"></script>
