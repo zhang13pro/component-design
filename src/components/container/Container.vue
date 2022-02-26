@@ -2,7 +2,6 @@
   <section class="el-container" :class="{ 'is-vertical': isVertical }">
     <slot />
   </section>
-  <p>Container</p>
 </template>
 
 <script lang="ts">
@@ -13,9 +12,9 @@ export default {
 <script setup lang="ts">
 import { useSlots, computed, VNode, Component } from "vue";
 
-interface Props {
+type Props = {
   direction?: string;
-}
+};
 
 const props = defineProps<Props>();
 const slots = useSlots();
@@ -34,7 +33,7 @@ const isVertical = computed(() => {
 </script>
 
 <style lang="scss">
-@import "../styles/mixin";
+@import "../styles/mixin.scss";
 
 @include b(container) {
   display: flex;

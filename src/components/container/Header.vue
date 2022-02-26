@@ -10,10 +10,10 @@ export default {
 };
 </script>
 <script setup lang="ts">
-interface Props {
+type Props = {
   height?: string;
   width?: string;
-}
+};
 
 withDefaults(defineProps<Props>(), {
   height: "60px",
@@ -21,11 +21,12 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <style lang="scss">
-@import "../styles/mixin";
+@import "../styles/mixin.scss";
 
 @include b(header) {
   box-sizing: border-box;
   padding: $--header-padding;
   flex-shrink: 0;
+  background-color: $--color-primary;
 }
 </style>
