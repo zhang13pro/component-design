@@ -11,8 +11,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { withDefaults } from "vue";
-
 type Props = {
   height?: string;
   width?: string;

@@ -17,7 +17,7 @@
 
   <el-container>
     <el-aside width="200px">
-      <el-button size="large">Aside</el-button>
+      <el-button size="large" type="success">Aside</el-button>
     </el-aside>
     <el-container>
       <el-header>Header</el-header>
