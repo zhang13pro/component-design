@@ -11,54 +11,54 @@
 <script lang="ts">
 export default {
   name: "ElFormItem",
-};
+}
 </script>
 
 <script setup lang="ts">
-import Schema from "async-validator";
-import { onMounted, ref, inject } from "vue";
-import { FormItem, key } from "./type";
-import { emitter } from "../../emitter";
+import Schema from "async-validator"
+import { onMounted, ref, inject } from "vue"
+import { FormItem, key } from "./type"
+import { emitter } from "../../emitter"
 
 interface Props {
-  label?: string;
-  prop?: string;
+  label?: string
+  prop?: string
 }
-const props = withDefaults(defineProps<Props>(), { label: "", prop: "" });
+const props = withDefaults(defineProps<Props>(), { label: "", prop: "" })
 // 错误
-const error = ref("");
+const error = ref("")
 
-const formData = inject(key);
+const formData = inject(key)
 
 const o: FormItem = {
   validate,
-};
+}
 
-defineExpose(o);
+defineExpose(o)
 
 onMounted(() => {
   if (props.prop) {
     emitter.on("validate", () => {
-      validate();
-    });
-    emitter.emit("addFormItem", o);
+      validate()
+    })
+    emitter.emit("addFormItem", o)
   }
-});
+})
 
 function validate() {
   if (formData?.rules === undefined) {
-    return Promise.resolve({ result: true });
+    return Promise.resolve({ result: true })
   }
-  const rules = formData.rules[props.prop];
-  const value = formData.model[props.prop];
-  const schema = new Schema({ [props.prop]: rules });
+  const rules = formData.rules[props.prop]
+  const value = formData.model[props.prop]
+  const schema = new Schema({ [props.prop]: rules })
   return schema.validate({ [props.prop]: value }, (errors) => {
     if (errors) {
-      error.value = errors[0].message || "校验错误";
+      error.value = errors[0].message || "校验错误"
     } else {
-      error.value = "";
+      error.value = ""
     }
-  });
+  })
 }
 </script>
 

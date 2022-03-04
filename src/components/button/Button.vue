@@ -13,27 +13,27 @@
 <script lang="ts">
 export default {
   name: "ElButton",
-};
+}
 </script>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { useGlobalConfig } from "../../util";
+import { computed } from "vue"
+import { useGlobalConfig } from "../../util"
 
 type Props = {
-  size?: "" | "small" | "medium" | "large";
-  type?: "" | "primary" | "success" | "danger";
-};
+  size?: "" | "small" | "medium" | "large"
+  type?: "" | "primary" | "success" | "danger"
+}
 
 const props = withDefaults(defineProps<Props>(), {
   size: "",
   type: "",
-});
-const globalConfig = useGlobalConfig();
+})
+const globalConfig = useGlobalConfig()
 const buttonSize = computed(() => {
-  console.log(props.size, globalConfig);
-  return props.size || globalConfig.size;
-});
+  console.log(props.size, globalConfig)
+  return props.size || globalConfig.size
+})
 </script>
 
 <style lang="scss">

@@ -7,16 +7,16 @@
 <script lang="ts">
 export default {
   name: "ElAside",
-};
+}
 </script>
 <script setup lang="ts">
 type Props = {
-  width: string;
-};
+  width: string
+}
 
 withDefaults(defineProps<Props>(), {
   width: "300px",
-});
+})
 </script>
 
 <style lang="scss">

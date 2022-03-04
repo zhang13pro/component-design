@@ -7,7 +7,7 @@
 <script lang="ts">
 export default {
   name: "ElMain",
-};
+}
 </script>
 <script setup lang="ts"></script>
 

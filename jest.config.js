@@ -7,4 +7,4 @@ module.exports = {
   testMatch: ["**/?(*.)+(spec).[jt]s?(x)"], // Jest 只会执行.spec.js 结尾的文件
   collectCoverage: true,
   coverageReporters: ["json", "html"],
-};
+}

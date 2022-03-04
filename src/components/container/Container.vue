@@ -7,29 +7,29 @@
 <script lang="ts">
 export default {
   name: "ElContainer",
-};
+}
 </script>
 <script setup lang="ts">
-import { useSlots, computed, VNode, Component } from "vue";
+import { useSlots, computed, VNode, Component } from "vue"
 
 type Props = {
-  direction?: string;
-};
+  direction?: string
+}
 
-const props = defineProps<Props>();
-const slots = useSlots();
+const props = defineProps<Props>()
+const slots = useSlots()
 // 存在Header或Footer组件显示垂直居中，否则水平居中
 const isVertical = computed(() => {
   if (slots && slots.default) {
     return slots.default().some((vn: VNode) => {
       // as 类型断言
-      const tag = (vn.type as Component).name;
-      return tag === "ElHeader" || tag === "ElFooter";
-    });
+      const tag = (vn.type as Component).name
+      return tag === "ElHeader" || tag === "ElFooter"
+    })
   } else {
-    return props.direction === "vertical";
+    return props.direction === "vertical"
   }
-});
+})
 </script>
 
 <style lang="scss">

@@ -8,46 +8,46 @@
 <script lang="ts">
 export default {
   name: "ElForm",
-};
+}
 </script>
 
 <script setup lang="ts">
-import { PropType, provide } from "vue";
-import { Rules } from "async-validator";
-import { ref } from "vue";
-import { emitter } from "../../emitter";
-import { FormItem, key } from "./type";
+import { PropType, provide } from "vue"
+import { Rules } from "async-validator"
+import { ref } from "vue"
+import { emitter } from "../../emitter"
+import { FormItem, key } from "./type"
 
 const props = defineProps({
   model: { type: Object, required: true },
   rules: { type: Object as PropType<Rules> },
-});
+})
 
 provide(key, {
   model: props.model,
   rules: props.rules,
-});
+})
 
-const items = ref<FormItem[]>([]);
+const items = ref<FormItem[]>([])
 
 emitter.on("addFormItem", (item) => {
-  items.value.push(item);
-});
+  items.value.push(item)
+})
 
 function validate(cb: (isValid: boolean) => void) {
-  const tasks = items.value.map((item) => item.validate());
+  const tasks = items.value.map((item) => item.validate())
   Promise.all(tasks)
     .then(() => {
-      cb(true);
+      cb(true)
     })
     .catch(() => {
-      cb(false);
-    });
+      cb(false)
+    })
 }
 
 defineExpose({
   validate,
-});
+})
 </script>
 
 <style lang="scss">

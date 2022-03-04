@@ -7,17 +7,17 @@
 <script lang="ts">
 export default {
   name: "ElHeader",
-};
+}
 </script>
 <script setup lang="ts">
 type Props = {
-  height?: string;
-  width?: string;
-};
+  height?: string
+  width?: string
+}
 
 withDefaults(defineProps<Props>(), {
   height: "60px",
-});
+})
 </script>
 
 <style lang="scss">
